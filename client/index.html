@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="CB">
+<head>
+  <meta charset="UTF-8">
+  <title>Course Builder</title>
+  <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Course Builder</h1>
+    <div class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li ui-sref="getting-started">Getting Started</li>
+        <li ui-sref="courses">Courses</li>
+        <li ui-sref="signin">Courses</li>
+      </ul>
+    </div>
+  </div>
+  <div ui-view class="container"></div>
+  <script src="lib/angular/angular.js"></script>
+  <script src="lib/angular-ui-router/release/angular-ui-router.js"></script>
+  <script src="lib/ngFx/dist/ngFx.js"></script>
+  <script src="app/app.js"></script>
+  <script src="app/welcome/welcome.js"></script>
+</body>
+</html>
