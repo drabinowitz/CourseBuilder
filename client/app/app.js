@@ -1,5 +1,6 @@
 angular.module('CB', [
   'CB.welcome',
+  'CB.users',
   'ngFx',
   'ui.router'
 ])
