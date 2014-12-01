@@ -6,16 +6,23 @@
   <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.css">
 </head>
 <body>
-  <div class="container">
-    <h1>Course Builder</h1>
-    <div class="navbar-collapse collapse">
-      <ul class="nav navbar-nav">
-        <li ui-sref="getting-started">Getting Started</li>
-        <li ui-sref="courses">Courses</li>
-        <li ui-sref="signin">Courses</li>
-      </ul>
+  <nav class="navbar navbar-default navbar-static-top">
+    <div class="container">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">Course Builder</a>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li>
+            <a ui-sref="getting-started">Getting Started</a>
+          </li>
+          <li>
+            <a ui-sref="users.guest.courses">Try It Out</a>
+          </li>
+        </ul>
+      </div>
     </div>
-  </div>
+  </nav>
   <div ui-view class="container"></div>
   <script src="lib/angular/angular.js"></script>
   <script src="lib/angular-ui-router/release/angular-ui-router.js"></script>
