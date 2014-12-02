@@ -1,10 +1,11 @@
 <div class="row">
   <div class="col-md-12">
-    <h4>{{ lesson.name }}</h4>
+    <h3>{{ lesson.name }}</h3>
     <span>Hours: </span><input type="number" value="{{ lesson.hours }}">
   </div>
   <div class="col-md-8" ng-repeat="assignment in lesson.assignments">
-    <h6>{{ assignment.type }}</h6>
+    <h4>{{ assignment.name }}</h4>
+    <p>hours: {{ assignment.hours }}</p>
     <p>{{ assignment.body }}</p>
   </div>
 </div>

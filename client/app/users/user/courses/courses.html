@@ -2,7 +2,7 @@
   <div class="col-md-12">
     <input type="text" placeholder="Filter Courses" ng-model="search">
   </div>
-  <div class="col-md-4" ng-repeat="course in courses | filter:search">
+  <div class="col-md-4" ng-repeat="course in user.courses | filter:search">
      <div class="course">
        <h5><a ui-sref="courses.course({courseId:course.id})">{{ course.name }}</a></h5>
        <p>hours : {{ course.hours }}</p>
