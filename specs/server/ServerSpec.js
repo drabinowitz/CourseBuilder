@@ -166,10 +166,39 @@ describe('should be able to access the Guest User courses', function(){
   this.timeout(5000);
 
   it('should respond with courses for the associated user id', function(done){
-    request('http://127.0.0.1:8000/users/0/courses', function(error, res, body){
-      expect(body.courses[0].name).to.equal('Guest Course');
-      expect(body.courses[0].id).to.equal(1);
-      expect(body.courses[0].hours).to.equal(10);
+    request('http://127.0.0.1:8000/users/1/courses', function(error, res, body){
+      var user = JSON.parse(body);
+      expect(user.username).to.equal('Guest');
+      expect(user.id).to.equal(1);
+      var course1 = user.courses[0];
+      expect(course1.name).to.equal('Guest Course');
+      expect(course1.id).to.equal(1);
+      expect(course1.hours).to.equal(10);
+      done();
+    });
+  });
+
+  it('should respond with lessons for the associated course', function(done){
+    request('http://127.0.0.1:8000/courses/1/lessons', function(error, res, body){
+      var course = JSON.parse(body);
+      expect(course.name).to.equal('Guest Course');
+      expect(course.id).to.equal(1);
+      expect(course.hours).to.equal(10);
+      var lesson1 = course.lessons[0];
+      var lesson2 = course.lessons[1];
+      var lesson3 = course.lessons[2];
+      expect(lesson1.name).to.equal('Lesson 1');
+      expect(lesson1.id).to.equal(1);
+      expect(lesson1.hours).to.equal(3);
+      expect(lesson1.order).to.equal(0);
+      expect(lesson2.name).to.equal('Lesson 2');
+      expect(lesson2.id).to.equal(2);
+      expect(lesson2.hours).to.equal(4);
+      expect(lesson2.order).to.equal(1);
+      expect(lesson3.name).to.equal('Lesson 3');
+      expect(lesson3.id).to.equal(3);
+      expect(lesson3.hours).to.equal(3);
+      expect(lesson3.order).to.equal(2);
       done();
     });
   });
