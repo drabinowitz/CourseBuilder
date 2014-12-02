@@ -1,5 +1,7 @@
 <div class="container">
-  <h4>Welcome, {{ user.name }}</h4>
-  <a ui-sref="users.user.courses">View Courses</a>
+  <div class="jumbotron">
+    <h2>Welcome, {{ user.name }}</h2>
+    <a class="btn btn-primary btn-lg" ui-sref="users.user.courses">Courses</a>
+  </div>
   <div ui-view></div>
 </div>

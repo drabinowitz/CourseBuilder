@@ -1,0 +1,19 @@
+<div class="container">
+  <h3>{{course.name}}</h3>
+  <h4>hours: {{course.hours}}</h4>
+  <div ui-view></div>
+  <div class="row">
+    <div class="col-md-12">
+      <input type="text" placeholder="Filter Lessons" ng-model="search">
+    </div>
+    <div class="col-md-12" ng-repeat="lesson in course.lessons | filter:search">
+       <div class="lesson">
+         <h4><a ui-sref="courses.course.lessons.lesson">{{ lesson.name }}</a></h4>
+         <p>hours : {{ lesson.hours }}</p>
+       </div>
+    </div>
+    <div class="col-md-12">
+      button
+    </div>
+  </div>
+</div>
