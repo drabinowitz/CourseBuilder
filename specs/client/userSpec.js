@@ -18,7 +18,11 @@ describe('user', function() {
 
     users = {
       get: function(){
-        return mockUser;
+        return {
+          then: function(cb){
+            return cb(mockUser);
+          }
+        };
       }
     };
 

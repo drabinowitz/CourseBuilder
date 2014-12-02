@@ -1,16 +1,20 @@
 describe('courses', function(){
 
   describe('courses factory', function() {
-    var courses;
+    var courses,$httpBackend;
     beforeEach(module('CB'));
     beforeEach(inject(function($injector){
       courses = $injector.get('courses');
+      $httpBackend = $injector.get('$httpBackend');
     }));
 
     it('should get the courses for an associated user', function() {
-      var guestCourses = courses.get('0');
-      expect(guestCourses[0].name).to.equal('Guest Course');
-      expect(guestCourses[0].hours).to.equal(10);
+      var mockUser = {'courses':[{},{},{}]};
+      $httpBackend.expectGET('/users/1/courses').respond(mockUser);
+      courses.get(1).then(function(user){
+        expect(user).to.eql(mockUser);
+      });
+      $httpBackend.flush();
     });
   });
 

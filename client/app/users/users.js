@@ -1,17 +1,11 @@
 angular.module('CB.users',[])
 
-.factory('users', [function(){
-  var Users = {
-    '0':{
-      id: 0,
-      name:'Guest',
-      courses: ['1']
-    }
-  };
+.factory('users', ['$http',function($http){
   return {
-    get:function(id){
-      if (id == null) return Users;
-      return Users[id];
+    get: function(id){
+      return $http.get('/users/' + id + '/courses').then(function(result){
+        return result.data;
+      });
     }
   };
 }]);
