@@ -1,6 +1,7 @@
 var express     = require('express');
 var bodyParser = require('body-parser');
 var url = require('url');
+var passportHelper = require('./helpers/passport-helper');
 
 var db = require('./db/config');
 var User = require('./db/models/user');
@@ -15,9 +16,18 @@ var app = express();
 
 app.use(bodyParser.json());
 
+app.use(bodyParser.urlencoded({ extended: true }));
+
+passportHelper(app);
+
+app.get('/github',passportHelper.authGithub);
+
+app.get('/github/callback',passportHelper.authGithub);
+
 app.use(express.static(__dirname + '/../client'));
 
 app.get('/users/:id/courses', function(req,res){
+  console.log(req);
   new User({
     'id':req.params.id
   }).fetch({
