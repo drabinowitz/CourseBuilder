@@ -4,7 +4,7 @@
   </div>
   <div class="col-md-4" ng-repeat="course in courses | filter:search">
      <div class="course">
-       <h5><a ui-sref="courses.course({courseCode:course.id})">{{ course.name }}</a></h5>
+       <h5><a ui-sref="courses.course({courseId:course.id})">{{ course.name }}</a></h5>
        <p>hours : {{ course.hours }}</p>
      </div>
   </div>

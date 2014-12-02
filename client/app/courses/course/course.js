@@ -3,11 +3,11 @@ angular.module('CB.courses.course',[])
 .controller('courseController',['$scope','$stateParams','course',
 function($scope,$stateParams,course){
 
-  $scope.course = course.get($stateParams.courseCode);
+  $scope.course = course.get($stateParams.courseId);
 
   $scope.addLesson = function(){
-    course.addLesson($stateParams.courseCode);
-    $scope.course = course.get($stateParams.courseCode);
+    course.addLesson($stateParams.courseId);
+    $scope.course = course.get($stateParams.courseId);
   };
 
 }])

@@ -6,6 +6,6 @@ angular.module('CB.users.user',[
 .controller('userController',['$scope','$stateParams','users',
 function($scope,$stateParams,users){
 
-  $scope.user = users.get($stateParams.userCode);
+  $scope.user = users.get($stateParams.userId);
 
 }]);

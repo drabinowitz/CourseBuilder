@@ -4,7 +4,7 @@ angular.module('CB.users.user.courses',[
 
 .controller('coursesController',['$scope','$stateParams','courses',function($scope,$stateParams,courses){
 
-  $scope.courses = courses.get($stateParams.userCode);
+  $scope.courses = courses.get($stateParams.userId);
 
 }])
 

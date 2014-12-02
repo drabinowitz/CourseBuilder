@@ -48,7 +48,7 @@ describe('course',function(){
       $rootScope = $injector.get('$rootScope');
       $scope = $rootScope.$new();
       $stateParams = $injector.get('$stateParams');
-      $stateParams.courseCode = 0;
+      $stateParams.courseId = 0;
       $controller = $injector.get('$controller');
 
       mockCourse = {

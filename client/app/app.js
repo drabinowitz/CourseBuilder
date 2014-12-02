@@ -21,7 +21,7 @@ function($stateProvider,$urlRouterProvider,$httpProvider){
       template: '<div ui-view></div'
     })
     .state('users.user', {
-      url: '/:userCode',
+      url: '/:userId',
       templateUrl: 'app/users/user/user.html',
       controller: 'userController'
     })
@@ -36,7 +36,7 @@ function($stateProvider,$urlRouterProvider,$httpProvider){
       template: '<div ui-view></div>'
     })
     .state('courses.course', {
-      url: '/:courseCode',
+      url: '/:courseId',
       templateUrl: 'app/courses/course/course.html',
       controller: 'courseController'
     });
