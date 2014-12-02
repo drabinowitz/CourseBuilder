@@ -1,29 +1,20 @@
 describe('lesson',function(){
   describe('lesson factory',function(){
-    var lesson;
+    var lesson,$httpBackend;
 
     beforeEach(module('CB'));
     beforeEach(inject(function($injector){
       lesson = $injector.get('lesson');
+      $httpBackend = $injector.get('$httpBackend');
     }));
 
     it('should get the templates for a lesson',function(){
-      var lesson1 = lesson.get(0);
-      expect(lesson1.name).to.equal('lesson1');
-      expect(lesson1.hours).to.equal(3);
-      expect(lesson1.id).to.equal(0);
-      expect(lesson1.assignments).to.eql([
-        {
-          type:'text',
-          body:'Here is the first lesson',
-          id:0
-        },
-        {
-          type:'text',
-          body:'It can have many assignments',
-          id:1
-        }
-      ]);
+      var mockLesson = {'assignments':[{},{},{}]};
+      $httpBackend.expectGET('/courses/1/lessons/1/assignments').respond(mockLesson);
+      lesson.get(1,1).then(function(lesson){
+        expect(lesson).to.eql(mockLesson);
+      });
+      $httpBackend.flush();
     });
   });
 
@@ -52,7 +43,11 @@ describe('lesson',function(){
       lesson = {
         get:function(lessonId){
           var lesson = [mockLesson];
-          return lesson[lessonId];
+          return {
+            then:function(cb){
+              cb(lesson[lessonId]);
+            }
+          };
         }
       };
 

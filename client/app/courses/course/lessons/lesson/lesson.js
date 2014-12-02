@@ -5,33 +5,17 @@ angular.module('CB.courses.course.lessons.lesson',[
 
 .controller('lessonController',['$scope','$stateParams','lesson',
 function($scope,$stateParams,lesson){
-  $scope.lesson = lesson.get($stateParams.lessonId);
+  lesson.get($stateParams.courseId,$stateParams.lessonId).then(function(lesson){
+    $scope.lesson = lesson;
+  });
 }])
 
-.factory('lesson',function(){
-  var lesson = {
-    '0': {
-      name: 'lesson1',
-      hours: 3,
-      id: 0,
-      assignments:[
-        {
-          type:'text',
-          body:'Here is the first lesson',
-          id:0
-        },
-        {
-          type:'text',
-          body:'It can have many assignments',
-          id:1
-        }
-      ]
-    }
-  };
-
+.factory('lesson',['$http',function($http){
   return {
-    get: function(lessonId){
-      return lesson[lessonId];
+    get: function(courseId,lessonId){
+      return $http.get('/courses/' + courseId + '/lessons/' + lessonId + '/assignments').then(function(result){
+        return result.data;
+      });
     }
   };
-});
+}]);
