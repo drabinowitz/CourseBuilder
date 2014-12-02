@@ -8,7 +8,7 @@
     </div>
     <div class="col-md-12" ng-repeat="lesson in course.lessons | filter:search">
        <div class="lesson" ng-style="{'height':lesson.hours*30 + 'px'}">
-         <h4><a ui-sref="courses.course.lessons.lesson">{{ lesson.name }}</a></h4>
+         <h4><a ui-sref="courses.course.lessons.lesson({lessonId:lesson.id})">{{ lesson.name }}</a></h4>
          <p>hours : {{ lesson.hours }}</p>
        </div>
     </div>

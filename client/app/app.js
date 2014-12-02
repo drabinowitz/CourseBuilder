@@ -1,6 +1,6 @@
 angular.module('CB', [
   'CB.welcome',
-  'CB.courses.course',
+  'CB.courses.course.lessons.lesson',
   'CB.users.user.courses',
   'ngFx',
   'ui.router'
@@ -39,5 +39,15 @@ function($stateProvider,$urlRouterProvider,$httpProvider){
       url: '/:courseId',
       templateUrl: 'app/courses/course/course.html',
       controller: 'courseController'
+    })
+    .state('courses.course.lessons', {
+      url: '/lessons',
+      abstract: true,
+      template: '<div ui-view></div>'
+    })
+    .state('courses.course.lessons.lesson', {
+      url: '/:lessonId',
+      templateUrl: 'app/courses/course/lessons/lesson/lesson.html',
+      controller: 'lessonController'
     });
 }]);

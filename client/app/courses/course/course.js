@@ -1,4 +1,6 @@
-angular.module('CB.courses.course',[])
+angular.module('CB.courses.course',[
+  'ui.router'
+])
 
 .controller('courseController',['$scope','$stateParams','course',
 function($scope,$stateParams,course){
