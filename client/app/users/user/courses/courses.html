@@ -1,8 +1,10 @@
 <div class="row">
-  <input type="text" ng-model="search">
+  <div class="col-md-12">
+    <p>Filter:</p><input type="text" ng-model="search">
+  </div>
   <div class="col-md-4" ng-repeat="course in courses | filter:search">
      <div class="course">
-       <h6><a href="">{{ course.name }}</a></h6>
+       <h6><a ui-sref="courses.course({courseCode:course.id})">{{ course.name }}</a></h6>
        <p>hours : {{ course.hours }}</p>
      </div>
   </div>

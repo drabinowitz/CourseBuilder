@@ -13,11 +13,13 @@ angular.module('CB.users.user.courses',[
     '0' : [
       {
         name:'Guest Course',
-        hours:10
+        hours:10,
+        id:0
       },
       {
         name:'Guest Course2',
-        hours:30
+        hours:30,
+        id:1
       }
     ]
   };

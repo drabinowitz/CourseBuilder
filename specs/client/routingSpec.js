@@ -23,4 +23,10 @@ describe('Routing', function() {
     expect($state.get('users.user.courses').controller).to.be('coursesController');
     expect($state.get('users.user.courses').templateUrl).to.be('app/users/user/courses/courses.html');
   });
+
+  it('should have a course state, template, and controller nested under users', function(){
+    expect($state.get('courses.course')).to.be.ok();
+    expect($state.get('courses.course').controller).to.be('courseController');
+    expect($state.get('courses.course').templateUrl).to.be('app/courses/course/course.html');
+  });
 });

@@ -1,5 +1,6 @@
 angular.module('CB', [
   'CB.welcome',
+  'CB.courses.course',
   'CB.users.user.courses',
   'ngFx',
   'ui.router'
@@ -15,11 +16,12 @@ function($stateProvider,$urlRouterProvider,$httpProvider){
       controller: 'welcomeController'
     })
     .state('users', {
+      url: '/users',
       abstract: true,
       template: '<div ui-view></div'
     })
     .state('users.user', {
-      url: '/users/:userCode',
+      url: '/:userCode',
       templateUrl: 'app/users/user/user.html',
       controller: 'userController'
     })
@@ -27,5 +29,15 @@ function($stateProvider,$urlRouterProvider,$httpProvider){
       url: '/courses',
       templateUrl: 'app/users/user/courses/courses.html',
       controller: 'coursesController'
+    })
+    .state('courses', {
+      url: '/courses',
+      abstract: true,
+      template: '<div ui-view></div>'
+    })
+    .state('courses.course', {
+      url: '/:courseCode',
+      templateUrl: 'app/courses/course/course.html',
+      controller: 'courseController'
     });
 }]);
