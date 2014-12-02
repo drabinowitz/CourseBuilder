@@ -35,6 +35,8 @@
     "mocha": "^2.0.1"
   },
   "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "bluebird": "^2.3.11",
     "body-parser": "^1.9.3",
     "bookshelf": "^0.7.9",
     "express": "^4.10.4",
