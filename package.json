@@ -4,7 +4,7 @@
   "description": "a Course organizer, designer, and builder for teachers",
   "main": "index.js",
   "scripts": {
-    "test": "node server/server.js& ./node_modules/.bin/mocha --bail --reporter nyan specs/server/ServerSpec.js; pkill -n node;"
+    "test": "node index.js& ./node_modules/.bin/mocha --bail --reporter nyan specs/server/ServerSpec.js; pkill -n node;"
   },
   "repository": {
     "type": "git",
