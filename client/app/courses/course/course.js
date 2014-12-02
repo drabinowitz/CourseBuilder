@@ -2,7 +2,14 @@ angular.module('CB.courses.course',[])
 
 .controller('courseController',['$scope','$stateParams','course',
 function($scope,$stateParams,course){
+
   $scope.course = course.get($stateParams.courseCode);
+
+  $scope.addLesson = function(){
+    course.addLesson($stateParams.courseCode);
+    $scope.course = course.get($stateParams.courseCode);
+  };
+
 }])
 
 .factory('course',[function(){
@@ -37,6 +44,13 @@ function($scope,$stateParams,course){
   return {
     get: function(courseId){
       return course[courseId];
+    },
+    addLesson: function(courseId){
+      course[courseId].lessons.push({
+        name:'New Lesson',
+        hours:3,
+        id: course[courseId].lessons.length
+      });
     }
   };
 

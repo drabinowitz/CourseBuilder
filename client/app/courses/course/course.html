@@ -7,13 +7,13 @@
       <input type="text" placeholder="Filter Lessons" ng-model="search">
     </div>
     <div class="col-md-12" ng-repeat="lesson in course.lessons | filter:search">
-       <div class="lesson" ng-style="{'height':lesson.hours*50 + 'px'}">
+       <div class="lesson" ng-style="{'height':lesson.hours*30 + 'px'}">
          <h4><a ui-sref="courses.course.lessons.lesson">{{ lesson.name }}</a></h4>
          <p>hours : {{ lesson.hours }}</p>
        </div>
     </div>
     <div class="col-md-12">
-      button
+      <button class="btn btn-lg btn-success" ng-click="addLesson()">Add Lesson</button>
     </div>
   </div>
 </div>
