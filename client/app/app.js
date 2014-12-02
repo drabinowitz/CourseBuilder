@@ -16,7 +16,7 @@ function($stateProvider,$urlRouterProvider,$httpProvider){
     })
     .state('users', {
       abstract: true,
-      templateUrl: ''
+      template: '<div ui-view></div'
     })
     .state('users.user', {
       url: '/users/:userCode',
