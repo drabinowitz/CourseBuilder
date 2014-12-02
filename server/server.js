@@ -15,6 +15,8 @@ var app = express();
 
 app.use(bodyParser.json());
 
+app.use(express.static(__dirname + '/../client'));
+
 app.get('/users/:id/courses', function(req,res){
   new User({
     'id':req.params.id
@@ -46,6 +48,5 @@ app.get('/courses/:id/lessons', function(req,res){
 });
 
 
-app.use(express.static(__dirname + '/../client'));
 
 module.exports = app;
