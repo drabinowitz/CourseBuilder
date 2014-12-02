@@ -3,8 +3,8 @@
     <h4>{{ lesson.name }}</h4>
     <span>Hours: </span><input type="number" value="{{ lesson.hours }}">
   </div>
-  <div class="col-md-8" ng-repeat="template in lesson.templates">
-    <h6>{{ template.type }}</h6>
-    <p>{{ template.body }}</p>
+  <div class="col-md-8" ng-repeat="assignment in lesson.assignments">
+    <h6>{{ assignment.type }}</h6>
+    <p>{{ assignment.body }}</p>
   </div>
 </div>

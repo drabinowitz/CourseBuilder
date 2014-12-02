@@ -14,7 +14,7 @@ function($scope,$stateParams,lesson){
       name: 'lesson1',
       hours: 3,
       id: 0,
-      templates:[
+      assignments:[
         {
           type:'text',
           body:'Here is the first lesson',
@@ -22,7 +22,7 @@ function($scope,$stateParams,lesson){
         },
         {
           type:'text',
-          body:'It can have many templates',
+          body:'It can have many assignments',
           id:1
         }
       ]

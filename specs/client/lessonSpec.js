@@ -12,7 +12,7 @@ describe('lesson',function(){
       expect(lesson1.name).to.equal('lesson1');
       expect(lesson1.hours).to.equal(3);
       expect(lesson1.id).to.equal(0);
-      expect(lesson1.templates).to.eql([
+      expect(lesson1.assignments).to.eql([
         {
           type:'text',
           body:'Here is the first lesson',
@@ -20,7 +20,7 @@ describe('lesson',function(){
         },
         {
           type:'text',
-          body:'It can have many templates',
+          body:'It can have many assignments',
           id:1
         }
       ]);
