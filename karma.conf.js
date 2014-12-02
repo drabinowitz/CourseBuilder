@@ -26,9 +26,7 @@ module.exports = function(config) {
 
     //spec files
     'node_modules/expect.js/index.js',
-    'specs/client/**/*.js',
-
-    'specs/server/**/*.js'
+    'specs/client/**/*.js'
     ],
 
 
