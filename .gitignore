@@ -1,3 +1,4 @@
 node_modules/
 client/lib
 creds/
+server/db/storage
