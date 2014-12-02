@@ -1,4 +1,4 @@
-var Bookshelf = require('Bookshelf');
+var Bookshelf = require('bookshelf');
 var path = require('path');
 var SQLITE3 = require('../../creds/SQLITE3');
 

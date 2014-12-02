@@ -11,6 +11,7 @@ login.local = function(username,password,user){
   return bcrypt.compareAsync(password,user.get('password'));
 };
 
+login.guest = autoLogin;
 login.github = autoLogin;
 login.facebook = autoLogin;
 
@@ -30,6 +31,7 @@ signup.local = function(authType,username,password){
   }).save();
 };
 
+signup.guest = autoSignup;
 signup.github = autoSignup;
 signup.facebook = autoSignup;
 
