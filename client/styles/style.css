@@ -1,0 +1,8 @@
+.lesson {
+  display: inline-block;
+  padding: 3px;
+  border-radius: 6px;
+  border: 1px solid rgba(128, 128, 128, 0.69);
+  margin: 1px 0;
+  width: 129px;
+}
