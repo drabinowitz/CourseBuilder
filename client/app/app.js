@@ -15,6 +15,10 @@ function($stateProvider,$urlRouterProvider,$httpProvider){
       templateUrl: 'app/welcome/welcome.html',
       controller: 'welcomeController'
     })
+    .state('getting-started', {
+      url: '/getting-started',
+      templateUrl: 'app/gettingStarted/gettingStarted.html'
+    })
     .state('users', {
       url: '/users',
       abstract: true,

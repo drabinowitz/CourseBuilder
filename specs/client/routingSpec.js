@@ -12,6 +12,11 @@ describe('Routing', function() {
     expect($state.get('welcome').templateUrl).to.be('app/welcome/welcome.html');
   });
 
+  it('should have a getting-started state, template, and controller', function(){
+    expect($state.get('getting-started')).to.be.ok();
+    expect($state.get('getting-started').templateUrl).to.be('app/gettingStarted/gettingStarted.html');
+  });
+
   it('should have a user state, template, and controller nested under users', function(){
     expect($state.get('users.user')).to.be.ok();
     expect($state.get('users.user').controller).to.be('userController');
