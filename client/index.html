@@ -17,18 +17,19 @@
             <a ui-sref="getting-started">Getting Started</a>
           </li>
           <li>
-            <a ui-sref="users.guest.courses">Try It Out</a>
+            <a ui-sref="users.user({userCode:1})">Try It Out</a>
           </li>
         </ul>
       </div>
     </div>
   </nav>
-  <div ui-view class="container"></div>
+  <div ui-view></div>
   <script src="lib/angular/angular.js"></script>
   <script src="lib/angular-ui-router/release/angular-ui-router.js"></script>
   <script src="lib/ngFx/dist/ngFx.js"></script>
   <script src="app/app.js"></script>
   <script src="app/welcome/welcome.js"></script>
   <script src="app/users/users.js"></script>
+  <script src="app/users/user/user.js"></script>
 </body>
 </html>

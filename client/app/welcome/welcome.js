@@ -1,5 +1,5 @@
 angular.module('CB.welcome', [])
 
-.controller('WelcomeController', ['$scope',function($scope){
+.controller('welcomeController', ['$scope',function($scope){
 
 }]);

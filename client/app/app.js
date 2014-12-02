@@ -1,28 +1,31 @@
 angular.module('CB', [
   'CB.welcome',
-  'CB.users',
+  'CB.users.user',
   'ngFx',
   'ui.router'
 ])
 .config(['$stateProvider','$urlRouterProvider', '$httpProvider',
 function($stateProvider,$urlRouterProvider,$httpProvider){
-  $urlRouterProvider.otherwise('/Welcome');
+  $urlRouterProvider.otherwise('/welcome');
 
   $stateProvider
     .state('welcome', {
-      url: '/Welcome',
+      url: '/welcome',
       templateUrl: 'app/welcome/welcome.html',
-      controller: 'WelcomeController'
+      controller: 'welcomeController'
     })
-    .state('users', {})
+    .state('users', {
+      abstract: true,
+      templateUrl: ''
+    })
     .state('users.user', {
       url: '/users/:userCode',
       templateUrl: 'app/users/user/user.html',
-      controller: 'UserController'
+      controller: 'userController'
     })
     .state('users.user.courses', {
       url: '/users/:userCode/courses',
       templateUrl: 'app/users/user/courses/courses.html',
-      controller: 'CoursesController'
+      controller: 'coursesController'
     });
 }]);
