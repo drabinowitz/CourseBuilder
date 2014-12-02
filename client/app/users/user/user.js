@@ -3,7 +3,8 @@ angular.module('CB.users.user',[
   'CB.users'
 ])
 
-.controller('userController',['$scope','$stateParams','users',function($scope,$stateParams,users){
+.controller('userController',['$scope','$stateParams','users',
+function($scope,$stateParams,users){
 
   $scope.user = users.get($stateParams.userCode);
 
