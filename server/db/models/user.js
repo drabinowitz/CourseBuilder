@@ -36,7 +36,7 @@ signup.github = autoSignup;
 signup.facebook = autoSignup;
 
 var User = db.Model.extend({
-  tablename: 'users',
+  tableName: 'users',
   hasTimestamps: true,
   courses: function() {
     return this.hasMany(Course);

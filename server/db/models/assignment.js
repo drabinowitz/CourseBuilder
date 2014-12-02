@@ -2,7 +2,7 @@ var db = require('../config');
 var Lesson = require('./lesson');
 
 var Assignment = db.Model.extend({
-  tablename: 'assignments',
+  tableName: 'assignments',
   hasTimestamps: true,
   lesson: function() {
     return this.belongsTo(Lesson, 'lesson_id');

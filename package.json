@@ -4,7 +4,7 @@
   "description": "a Course organizer, designer, and builder for teachers",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node server/server.js& ./node_modules/.bin/mocha --bail --reporter nyan specs/server/ServerSpec.js; pkill -n node;"
   },
   "repository": {
     "type": "git",
@@ -39,9 +39,11 @@
     "bluebird": "^2.3.11",
     "body-parser": "^1.9.3",
     "bookshelf": "^0.7.9",
+    "chai": "^1.10.0",
     "express": "^4.10.4",
     "knex": "^0.7.3",
     "path": "^0.4.9",
+    "request": "^2.49.0",
     "require": "^2.4.17",
     "sqlite3": "^3.0.4"
   }
