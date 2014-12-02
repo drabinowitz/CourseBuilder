@@ -36,7 +36,10 @@
   },
   "dependencies": {
     "body-parser": "^1.9.3",
+    "bookshelf": "^0.7.9",
     "express": "^4.10.4",
-    "require": "^2.4.17"
+    "knex": "^0.7.3",
+    "require": "^2.4.17",
+    "sqlite3": "^3.0.4"
   }
 }
