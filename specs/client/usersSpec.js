@@ -7,7 +7,8 @@ describe('Users Factory', function() {
   }));
 
   it ('should return the guest user', function(){
-    expect(users.get(1).name).to.equal('Guest');
-    expect(users.get(1).courses).to.eql(['1']);
+    expect(users.get(0).name).to.equal('Guest');
+    expect(users.get(0).courses).to.eql(['1']);
+    expect(users.get(0).id).to.equal(0);
   });
 });

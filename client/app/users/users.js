@@ -2,7 +2,8 @@ angular.module('CB.users',[])
 
 .factory('users', [function(){
   var Users = {
-    '1':{
+    '0':{
+      id: 0,
       name:'Guest',
       courses: ['1']
     }

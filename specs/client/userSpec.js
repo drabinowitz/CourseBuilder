@@ -5,7 +5,8 @@ describe('user', function() {
 
   mockUser = {
     name:'test',
-    courses: ['1']
+    courses: ['1'],
+    id:0
   };
 
   beforeEach(module('CB'));

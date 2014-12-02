@@ -24,7 +24,7 @@ function($stateProvider,$urlRouterProvider,$httpProvider){
       controller: 'userController'
     })
     .state('users.user.courses', {
-      url: '/users/:userCode/courses',
+      url: '/courses',
       templateUrl: 'app/users/user/courses/courses.html',
       controller: 'coursesController'
     });
