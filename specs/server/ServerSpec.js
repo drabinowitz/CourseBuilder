@@ -203,4 +203,30 @@ describe('should be able to access the Guest User courses', function(){
     });
   });
 
+  it('should respond with assignments for an associated lesson',function(done){
+    request('http://127.0.0.1:8000/courses/1/lessons/1/assignments', function(error, res, body){
+      var lesson = JSON.parse(body);
+      expect(lesson.name).to.equal('Lesson 1');
+      expect(lesson.id).to.equal(1);
+      expect(lesson.hours).to.equal(3);
+      expect(lesson.order).to.equal(0);
+
+      var assignment1 = lesson.assignments[0];
+      var assignment2 = lesson.assignments[1];
+      expect(assignment1.name).to.equal('In Class Assignment');
+      expect(assignment1.id).to.equal(1);
+      expect(assignment1.hours).to.equal(3);
+      expect(assignment1.order).to.equal(0);
+      expect(assignment1.type).to.equal('text');
+      expect(assignment1.body).to.equal('Here is the first lesson');
+      expect(assignment2.name).to.equal('Homework Assignment');
+      expect(assignment2.id).to.equal(2);
+      expect(assignment2.hours).to.equal(0);
+      expect(assignment2.order).to.equal(1);
+      expect(assignment2.type).to.equal('text');
+      expect(assignment2.body).to.equal('It can have many assignments');
+      done();
+    });
+  });
+
 });

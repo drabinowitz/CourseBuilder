@@ -25,6 +25,16 @@ app.get('/users/:id/courses', function(req,res){
   });
 });
 
+app.get('/courses/:courseId/lessons/:id/assignments', function(req,res){
+  new Lesson({
+    'id':req.params.id
+  }).fetch({
+    withRelated:['assignments']
+  }).then(function(lesson){
+    res.json(lesson);
+  });
+});
+
 app.get('/courses/:id/lessons', function(req,res){
   new Course({
     'id':req.params.id
@@ -34,6 +44,7 @@ app.get('/courses/:id/lessons', function(req,res){
     res.json(course);
   });
 });
+
 
 app.use(express.static(__dirname + '/../client'));
 
