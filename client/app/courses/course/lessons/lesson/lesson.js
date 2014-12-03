@@ -1,12 +1,15 @@
 angular.module('CB.courses.course.lessons.lesson',[
   'CB.courses.course',
-  'ui.router'
+  'ui.router',
+  'ngFx'
 ])
 
 .controller('lessonController',['$scope','$stateParams','lesson',
 function($scope,$stateParams,lesson){
 
   $scope.newAssignment = {};
+
+  if ($stateParams.courseId === '1'){$scope.isGuest = true;}
 
   lesson.get($stateParams.courseId,$stateParams.lessonId).then(function(lesson){
     $scope.lesson = lesson;

@@ -7,13 +7,13 @@
     <form name="newLessonForm" ng-submit='addLesson(newLessonForm.$valid)' novalidate>
       <input type='text' ng-model='newLesson.name' placeholder="name of lesson" required>
       <input type='number' ng-model='newLesson.hours' placeholder="total lesson hours" required>
-      <button class="btn btn-lg btn-success" type="submit">Add Lesson</button>
+      <button ng-disabled="isGuest" class="btn btn-lg btn-success" type="submit">Add Lesson</button>
     </form>
   </div>
     <div class="col-md-12">
       <input type="text" placeholder="Filter Lessons" ng-model="search">
     </div>
-    <div class="col-md-12" ng-repeat="lesson in course.lessons | filter:search">
+    <div class="col-md-12 fx-bounce-left fx-speed-500 fx-easing-back" ng-repeat="lesson in course.lessons | filter:search">
        <div class="lesson" ng-style="{'height':lesson.hours*30 + 'px'}">
          <h4><a ui-sref="courses.course.lessons.lesson({lessonId:lesson.id})">{{ lesson.name }}</a></h4>
          <p>hours : {{ lesson.hours }}</p>

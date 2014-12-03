@@ -1,27 +1,237 @@
 0 info it worked if it ends with ok
-1 verbose cli [ '/usr/local/bin/node', '/usr/local/bin/npm', 'init' ]
+1 verbose cli [ '/usr/local/bin/node',
+1 verbose cli   '/usr/local/bin/npm',
+1 verbose cli   'install',
+1 verbose cli   'azure-cli',
+1 verbose cli   '-g' ]
 2 info using npm@1.4.28
 3 info using node@v0.10.33
 4 verbose node symlink /usr/local/bin/node
-5 silly package data undefined
-6 info init written successfully
-7 error Error: Invalid name: "\"Course Builder\""
-7 error     at ensureValidName (/usr/local/lib/node_modules/npm/node_modules/read-package-json/node_modules/normalize-package-data/lib/fixer.js:315:15)
-7 error     at Object.module.exports.fixNameField (/usr/local/lib/node_modules/npm/node_modules/read-package-json/node_modules/normalize-package-data/lib/fixer.js:204:5)
-7 error     at /usr/local/lib/node_modules/npm/node_modules/read-package-json/node_modules/normalize-package-data/lib/normalize.js:30:38
-7 error     at Array.forEach (native)
-7 error     at normalize (/usr/local/lib/node_modules/npm/node_modules/read-package-json/node_modules/normalize-package-data/lib/normalize.js:29:15)
-7 error     at final (/usr/local/lib/node_modules/npm/node_modules/read-package-json/read-json.js:342:33)
-7 error     at then (/usr/local/lib/node_modules/npm/node_modules/read-package-json/read-json.js:126:33)
-7 error     at /usr/local/lib/node_modules/npm/node_modules/read-package-json/read-json.js:331:40
-7 error     at evalmachine.<anonymous>:271:14
-7 error     at /usr/local/lib/node_modules/npm/node_modules/graceful-fs/graceful-fs.js:102:5
-8 error If you need help, you may report this *entire* log,
-8 error including the npm and node versions, at:
-8 error     <http://github.com/npm/npm/issues>
-9 error System Linux 3.13.0-40-generic
-10 error command "/usr/local/bin/node" "/usr/local/bin/npm" "init"
-11 error cwd /home/drabinowitz/Documents/github/2014-10-solo
-12 error node -v v0.10.33
-13 error npm -v 1.4.28
-14 verbose exit [ 1, true ]
+5 verbose cache add [ 'azure-cli', null ]
+6 verbose cache add name=undefined spec="azure-cli" args=["azure-cli",null]
+7 verbose parsed url { protocol: null,
+7 verbose parsed url   slashes: null,
+7 verbose parsed url   auth: null,
+7 verbose parsed url   host: null,
+7 verbose parsed url   port: null,
+7 verbose parsed url   hostname: null,
+7 verbose parsed url   hash: null,
+7 verbose parsed url   search: null,
+7 verbose parsed url   query: null,
+7 verbose parsed url   pathname: 'azure-cli',
+7 verbose parsed url   path: 'azure-cli',
+7 verbose parsed url   href: 'azure-cli' }
+8 silly lockFile e55ea045-azure-cli azure-cli
+9 verbose lock azure-cli /home/drabinowitz/.npm/e55ea045-azure-cli.lock
+10 silly lockFile e55ea045-azure-cli azure-cli
+11 silly lockFile e55ea045-azure-cli azure-cli
+12 verbose addNamed [ 'azure-cli', '' ]
+13 verbose addNamed [ null, '*' ]
+14 silly lockFile a53364e7-azure-cli azure-cli@
+15 verbose lock azure-cli@ /home/drabinowitz/.npm/a53364e7-azure-cli.lock
+16 silly addNameRange { name: 'azure-cli', range: '*', hasData: false }
+17 verbose request where is /azure-cli
+18 verbose request registry https://registry.npmjs.org/
+19 verbose request id 786d5366cc4fb595
+20 verbose url raw /azure-cli
+21 verbose url resolving [ 'https://registry.npmjs.org/', './azure-cli' ]
+22 verbose url resolved https://registry.npmjs.org/azure-cli
+23 verbose request where is https://registry.npmjs.org/azure-cli
+24 info trying registry request attempt 1 at 21:59:37
+25 http GET https://registry.npmjs.org/azure-cli
+26 http 200 https://registry.npmjs.org/azure-cli
+27 silly registry.get cb [ 200,
+27 silly registry.get   { date: 'Wed, 03 Dec 2014 02:59:38 GMT',
+27 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+27 silly registry.get     etag: '"BIM4NOAI7WMPSE2LQ954ZF28P"',
+27 silly registry.get     'content-type': 'application/json',
+27 silly registry.get     'cache-control': 'max-age=60',
+27 silly registry.get     'content-length': '89447',
+27 silly registry.get     'accept-ranges': 'bytes',
+27 silly registry.get     via: '1.1 varnish',
+27 silly registry.get     age: '0',
+27 silly registry.get     'x-served-by': 'cache-iad2141-IAD',
+27 silly registry.get     'x-cache': 'MISS',
+27 silly registry.get     'x-cache-hits': '0',
+27 silly registry.get     'x-timer': 'S1417575577.971237,VS0,VE54',
+27 silly registry.get     vary: 'Accept',
+27 silly registry.get     'keep-alive': 'timeout=10, max=50',
+27 silly registry.get     connection: 'Keep-Alive' } ]
+28 silly addNameRange number 2 { name: 'azure-cli', range: '*', hasData: true }
+29 silly addNameRange versions [ 'azure-cli',
+29 silly addNameRange   [ '0.6.8',
+29 silly addNameRange     '0.6.9',
+29 silly addNameRange     '0.6.10',
+29 silly addNameRange     '0.6.11',
+29 silly addNameRange     '0.6.14',
+29 silly addNameRange     '0.6.15',
+29 silly addNameRange     '0.6.16',
+29 silly addNameRange     '0.6.17',
+29 silly addNameRange     '0.6.18',
+29 silly addNameRange     '0.7.0',
+29 silly addNameRange     '0.7.1',
+29 silly addNameRange     '0.7.2',
+29 silly addNameRange     '0.7.3',
+29 silly addNameRange     '0.7.4',
+29 silly addNameRange     '0.7.5',
+29 silly addNameRange     '0.8.0',
+29 silly addNameRange     '0.8.1',
+29 silly addNameRange     '0.8.2',
+29 silly addNameRange     '0.8.3',
+29 silly addNameRange     '0.8.4',
+29 silly addNameRange     '0.8.5',
+29 silly addNameRange     '0.8.6',
+29 silly addNameRange     '0.8.7',
+29 silly addNameRange     '0.8.8',
+29 silly addNameRange     '0.8.9',
+29 silly addNameRange     '0.8.10',
+29 silly addNameRange     '0.8.11',
+29 silly addNameRange     '0.8.12' ] ]
+30 verbose addNamed [ 'azure-cli', '0.8.12' ]
+31 verbose addNamed [ '0.8.12', '0.8.12' ]
+32 silly lockFile ddf13109-azure-cli-0-8-12 azure-cli@0.8.12
+33 verbose lock azure-cli@0.8.12 /home/drabinowitz/.npm/ddf13109-azure-cli-0-8-12.lock
+34 silly lockFile 982618b5-g-azure-cli-azure-cli-0-8-12-tgz https://registry.npmjs.org/azure-cli/-/azure-cli-0.8.12.tgz
+35 verbose lock https://registry.npmjs.org/azure-cli/-/azure-cli-0.8.12.tgz /home/drabinowitz/.npm/982618b5-g-azure-cli-azure-cli-0-8-12-tgz.lock
+36 verbose addRemoteTarball [ 'https://registry.npmjs.org/azure-cli/-/azure-cli-0.8.12.tgz',
+36 verbose addRemoteTarball   'be292bb1230dcf3053afacfd02c2c7595a243e9a' ]
+37 info retry fetch attempt 1 at 21:59:38
+38 verbose fetch to= /tmp/npm-30366-8Qky0eWl/registry.npmjs.org/azure-cli/-/azure-cli-0.8.12.tgz
+39 http GET https://registry.npmjs.org/azure-cli/-/azure-cli-0.8.12.tgz
+40 http 200 https://registry.npmjs.org/azure-cli/-/azure-cli-0.8.12.tgz
+41 silly lockFile 982618b5-g-azure-cli-azure-cli-0-8-12-tgz https://registry.npmjs.org/azure-cli/-/azure-cli-0.8.12.tgz
+42 silly lockFile 982618b5-g-azure-cli-azure-cli-0-8-12-tgz https://registry.npmjs.org/azure-cli/-/azure-cli-0.8.12.tgz
+43 silly lockFile ddf13109-azure-cli-0-8-12 azure-cli@0.8.12
+44 silly lockFile ddf13109-azure-cli-0-8-12 azure-cli@0.8.12
+45 silly lockFile a53364e7-azure-cli azure-cli@
+46 silly lockFile a53364e7-azure-cli azure-cli@
+47 silly resolved [ { name: 'azure-cli',
+47 silly resolved     author: { name: 'Microsoft Corporation' },
+47 silly resolved     contributors:
+47 silly resolved      [ [Object],
+47 silly resolved        [Object],
+47 silly resolved        [Object],
+47 silly resolved        [Object],
+47 silly resolved        [Object],
+47 silly resolved        [Object],
+47 silly resolved        [Object] ],
+47 silly resolved     version: '0.8.12',
+47 silly resolved     description: 'Microsoft Azure Cross Platform Command Line tool',
+47 silly resolved     tags: [ 'azure', 'cli' ],
+47 silly resolved     keywords: [ 'node', 'azure', 'cli', 'cloud hosting', 'deployment' ],
+47 silly resolved     main: './lib/cli.js',
+47 silly resolved     preferGlobal: 'true',
+47 silly resolved     engines: { node: '>= 0.8.26' },
+47 silly resolved     licenses: [ [Object] ],
+47 silly resolved     dependencies:
+47 silly resolved      { 'adal-node': '0.1.7',
+47 silly resolved        async: '0.2.7',
+47 silly resolved        azure: '0.10.1',
+47 silly resolved        'azure-common': '0.9.9',
+47 silly resolved        'azure-gallery': '2.0.0-pre.11',
+47 silly resolved        'azure-mgmt-authorization': '0.9.0-pre.2',
+47 silly resolved        'azure-mgmt-resource': '2.0.0-pre.12',
+47 silly resolved        'azure-storage': '0.4.0',
+47 silly resolved        'azure-storage-legacy': '0.9.11',
+47 silly resolved        'azure-extra': '0.1.3',
+47 silly resolved        mime: '~1.2.4',
+47 silly resolved        colors: '0.x.x',
+47 silly resolved        commander: '1.0.4',
+47 silly resolved        'easy-table': '0.0.1',
+47 silly resolved        'event-stream': '3.1.5',
+47 silly resolved        eyes: '0.x.x',
+47 silly resolved        github: '0.1.6',
+47 silly resolved        kuduscript: '0.1.11',
+47 silly resolved        moment: '2.6.0',
+47 silly resolved        'node-uuid': '1.2.0',
+47 silly resolved        omelette: '0.1.0',
+47 silly resolved        request: '2.27.0',
+47 silly resolved        streamline: '0.4.5',
+47 silly resolved        through: '2.3.4',
+47 silly resolved        tunnel: '0.0.2',
+47 silly resolved        underscore: '1.4.x',
+47 silly resolved        validator: '~3.1.0',
+47 silly resolved        winston: '0.6.x',
+47 silly resolved        wordwrap: '0.0.2',
+47 silly resolved        xml2js: '0.1.x',
+47 silly resolved        xmlbuilder: '0.4.x',
+47 silly resolved        'readable-stream': '~1.0.0',
+47 silly resolved        'openssl-wrapper': '0.2.1',
+47 silly resolved        'caller-id': '0.1.x' },
+47 silly resolved     devDependencies:
+47 silly resolved      { mocha: '1.16.0',
+47 silly resolved        jshint: '>= 2.1.4',
+47 silly resolved        sinon: '*',
+47 silly resolved        should: '3.3.2',
+47 silly resolved        nock: '0.16',
+47 silly resolved        'winston-memory': '*',
+47 silly resolved        cucumber: '~0.3.0' },
+47 silly resolved     homepage: 'https://github.com/WindowsAzure/azure-sdk-tools-xplat',
+47 silly resolved     repository:
+47 silly resolved      { type: 'git',
+47 silly resolved        url: 'git@github.com:WindowsAzure/azure-sdk-tools-xplat.git' },
+47 silly resolved     bugs: { url: 'https://github.com/WindowsAzure/azure-sdk-tools-xplat/issues' },
+47 silly resolved     scripts:
+47 silly resolved      { test: 'npm -s run-script jshint && npm -s run-script unit && npm -s run-script unit-arm',
+47 silly resolved        unit: 'node scripts/unit.js testlist.txt',
+47 silly resolved        'unit-mc': 'node scripts/unit.js --mc testlistmc.txt',
+47 silly resolved        'unit-arm': 'node scripts/unit.js testlistarm.txt',
+47 silly resolved        jshint: 'jshint lib --jslint-reporter --extra-ext ._js',
+47 silly resolved        preci: 'jshint lib --reporter=checkstyle --extra-ext ._js > checkstyle-result.xml',
+47 silly resolved        ci: 'node scripts/unit.js testlist.txt -xunit',
+47 silly resolved        preacceptance: 'node scripts/cuke-environment.js setup',
+47 silly resolved        acceptance: 'node node_modules/cucumber/bin/cucumber.js',
+47 silly resolved        postacceptance: 'node scripts/cuke-environment.js teardown',
+47 silly resolved        'extract-labels': 'node scripts/extract-labels' },
+47 silly resolved     bin: { azure: './bin/azure' },
+47 silly resolved     gitHead: '1c5e85bcf602f891dffdce1a74bb4a0fd93e6be5',
+47 silly resolved     _id: 'azure-cli@0.8.12',
+47 silly resolved     _shasum: 'be292bb1230dcf3053afacfd02c2c7595a243e9a',
+47 silly resolved     _from: 'azure-cli@',
+47 silly resolved     _npmVersion: '2.1.8',
+47 silly resolved     _nodeVersion: '0.10.29',
+47 silly resolved     _npmUser: { name: 'windowsazure', email: 'azuresdk@outlook.com' },
+47 silly resolved     maintainers: [ [Object] ],
+47 silly resolved     dist:
+47 silly resolved      { shasum: 'be292bb1230dcf3053afacfd02c2c7595a243e9a',
+47 silly resolved        tarball: 'http://registry.npmjs.org/azure-cli/-/azure-cli-0.8.12.tgz' },
+47 silly resolved     directories: {},
+47 silly resolved     _resolved: 'https://registry.npmjs.org/azure-cli/-/azure-cli-0.8.12.tgz' } ]
+48 info install azure-cli@0.8.12 into /usr/local/lib
+49 info installOne azure-cli@0.8.12
+50 verbose lib/node_modules/azure-cli unbuild
+51 verbose tar unpack /home/drabinowitz/.npm/azure-cli/0.8.12/package.tgz
+52 silly lockFile 5e0be1a0-local-lib-node-modules-azure-cli tar:///usr/local/lib/node_modules/azure-cli
+53 verbose lock tar:///usr/local/lib/node_modules/azure-cli /home/drabinowitz/.npm/5e0be1a0-local-lib-node-modules-azure-cli.lock
+54 silly lockFile 0daf9d42-npm-azure-cli-0-8-12-package-tgz tar:///home/drabinowitz/.npm/azure-cli/0.8.12/package.tgz
+55 verbose lock tar:///home/drabinowitz/.npm/azure-cli/0.8.12/package.tgz /home/drabinowitz/.npm/0daf9d42-npm-azure-cli-0-8-12-package-tgz.lock
+56 silly gunzTarPerm modes [ '775', '664' ]
+57 error Error: EACCES, mkdir '/usr/local/lib/node_modules/azure-cli'
+57 error  { [Error: EACCES, mkdir '/usr/local/lib/node_modules/azure-cli']
+57 error   errno: 3,
+57 error   code: 'EACCES',
+57 error   path: '/usr/local/lib/node_modules/azure-cli',
+57 error   fstream_type: 'Directory',
+57 error   fstream_path: '/usr/local/lib/node_modules/azure-cli',
+57 error   fstream_class: 'DirWriter',
+57 error   fstream_stack:
+57 error    [ '/usr/local/lib/node_modules/npm/node_modules/fstream/lib/dir-writer.js:36:23',
+57 error      '/usr/local/lib/node_modules/npm/node_modules/mkdirp/index.js:46:53',
+57 error      'Object.oncomplete (fs.js:107:15)' ] }
+58 error Please try running this command again as root/Administrator.
+59 error System Linux 3.13.0-40-generic
+60 error command "/usr/local/bin/node" "/usr/local/bin/npm" "install" "azure-cli" "-g"
+61 error cwd /home/drabinowitz/Documents/github/2014-10-solo
+62 error node -v v0.10.33
+63 error npm -v 1.4.28
+64 error path /usr/local/lib/node_modules/azure-cli
+65 error fstream_path /usr/local/lib/node_modules/azure-cli
+66 error fstream_type Directory
+67 error fstream_class DirWriter
+68 error code EACCES
+69 error errno 3
+70 error stack Error: EACCES, mkdir '/usr/local/lib/node_modules/azure-cli'
+71 error fstream_stack /usr/local/lib/node_modules/npm/node_modules/fstream/lib/dir-writer.js:36:23
+71 error fstream_stack /usr/local/lib/node_modules/npm/node_modules/mkdirp/index.js:46:53
+71 error fstream_stack Object.oncomplete (fs.js:107:15)
+72 verbose exit [ 3, true ]

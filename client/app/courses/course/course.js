@@ -1,4 +1,5 @@
 angular.module('CB.courses.course',[
+  'ngFx',
   'ui.router'
 ])
 
@@ -6,6 +7,10 @@ angular.module('CB.courses.course',[
 function($scope,$stateParams,course){
 
   $scope.newLesson = {};
+
+  $scope.course = {lessons:[]};
+
+  if ($stateParams.courseId === '1'){$scope.isGuest = true;}
 
   course.get($stateParams.courseId).then(function(course){
     $scope.course = course;

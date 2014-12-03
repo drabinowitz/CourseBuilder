@@ -1,10 +1,15 @@
 angular.module('CB.users.user.courses',[
+  'ngFx',
   'CB.users.user'
 ])
 
 .controller('coursesController',['$scope','$stateParams','courses',function($scope,$stateParams,courses){
 
   $scope.newCourse = {};
+
+  $scope.user = {courses:[]};
+
+  if ($stateParams.userId === '1'){$scope.isGuest = true;}
 
   courses.get($stateParams.userId).then(function(user){
     $scope.user = user;

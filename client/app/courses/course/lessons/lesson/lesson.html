@@ -6,10 +6,10 @@
       <input type='text' ng-model='newAssignment.name' placeholder="name of assignment" required>
       <input type='number' ng-model='newAssignment.hours' placeholder="total assignment hours" required>
       <textarea ng-model="newAssignment.body"></textarea>
-      <button class="btn btn-lg btn-success" type="submit">Add Assignment</button>
+      <button ng-disabled="isGuest" class="btn btn-lg btn-success" type="submit">Add Assignment</button>
     </form>
   </div>
-  <div class="col-md-8" ng-repeat="assignment in lesson.assignments">
+  <div class="col-md-8 fx-rotate-clock-left fx-speed-500 fx-easing-back" ng-repeat="assignment in lesson.assignments">
     <h4>{{ assignment.name }}</h4>
     <p>Hours: {{ assignment.hours }}</p>
     <p>{{ assignment.body }}</p>
