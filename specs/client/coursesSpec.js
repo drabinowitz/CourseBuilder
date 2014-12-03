@@ -30,10 +30,12 @@ describe('courses', function(){
   describe('coursesController',function(){
     var $scope, $rootScope, $stateParams, createController, courses, mockCourse;
 
-    mockUser = {'courses':[{
+    var mockUser = {'courses':[{
       name:'testcourse',
       hours:10
     }]};
+
+    mockCourse = {'name':'test'};
 
     beforeEach(module('CB'));
     beforeEach(inject(function($injector){
@@ -47,6 +49,13 @@ describe('courses', function(){
           return {
             then:function(cb){
               cb(mockUser);
+            }
+          };
+        },
+        add: function(){
+          return {
+            then:function(cb){
+              cb(mockCourse);
             }
           };
         }
@@ -66,6 +75,14 @@ describe('courses', function(){
     it('should load the courses for the associated user', function() {
       createController();
       expect($scope.user).to.equal(mockUser);
+    });
+
+    it('should add courses', function(){
+      createController();
+      $scope.user = {};
+      $scope.user.courses=[];
+      $scope.addCourse(true);
+      expect($scope.user.courses[0]).to.equal(mockCourse);
     });
   });
 });

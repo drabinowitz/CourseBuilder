@@ -16,19 +16,19 @@ describe('course',function(){
       });
       $httpBackend.flush();
     });
-    xit('should add lessons to a course',function(){
-      course.addLesson(0);
-      var guestCourse = course.get(0);
-      expect(guestCourse.lessons[3]).to.eql({
-        name:'New Lesson',
-        hours:3,
-        id:3
+
+    it('should post new courses', function(){
+      var newMockLesson = {'name':'new'};
+      $httpBackend.expectPOST('/courses/1/lessons').respond(newMockLesson);
+      course.add(1).then(function(lesson){
+        expect(lesson).to.eql(newMockLesson);
       });
+      $httpBackend.flush();
     });
   });
 
   describe('courseController', function(){
-    var $scope,$stateParams,$rootScope,$controller,createController,course,mockCourse;
+    var $scope,$stateParams,$rootScope,$controller,createController,course,mockCourse,mockLesson;
 
     beforeEach(module('CB'));
     beforeEach(inject(function($injector){
@@ -38,22 +38,9 @@ describe('course',function(){
       $stateParams.courseId = 0;
       $controller = $injector.get('$controller');
 
-      mockCourse = {
-        name:'testcourse',
-        hours:10,
-        lessons:[
-          {
-            name:'testlesson1',
-            hours:4,
-            id:0
-          },
-          {
-            name:'testlesson2',
-            hours:6,
-            id:1
-          }
-        ]
-      };
+      mockCourse = {name:'testcourse'};
+
+      mockLesson = {name:'testlesson'};
 
       course = {
         get:function(courseId){
@@ -66,12 +53,12 @@ describe('course',function(){
             }
           };
         },
-        addLesson:function(courseId){
-          mockCourse.lessons.push({
-            name:'testlesson3',
-            hours:5,
-            id:2
-          });
+        add:function(id){
+          return {
+            then: function(cb){
+              cb(mockLesson);
+            }
+          };
         }
       };
       createController = function(){
@@ -88,14 +75,12 @@ describe('course',function(){
       expect($scope.course).to.equal(mockCourse);
     });
 
-    xit('should allow users to add lessons',function(){
+    it('should allow users to add lessons',function(){
       createController();
-      $scope.addLesson();
-      expect($scope.course.lessons[2]).to.eql({
-        name:'testlesson3',
-        hours:5,
-        id:2
-      });
+      $scope.course = {};
+      $scope.course.lessons=[];
+      $scope.addLesson(true);
+      expect($scope.course.lessons[0]).to.equal(mockLesson);
     });
   });
 

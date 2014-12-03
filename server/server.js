@@ -42,6 +42,7 @@ app.route('/users/:id/courses')
     }
   })
 
+  //TODO: not secure
   .post(function(req,res){
     if (req.user){
       new Course({
@@ -93,6 +94,7 @@ app.route('/courses/:courseId/lessons/:id/assignments')
     });
   })
 
+  //TODO: not secure
   .post(function(req,res){
     if (req.user){
       new Assignment({
@@ -133,6 +135,7 @@ app.route('/courses/:id/lessons')
   })
 
   .post(function(req,res){
+    //TODO: not secure
     if (req.user){
       new Lesson({
         'name':req.body.name,

@@ -5,13 +5,22 @@ angular.module('CB.courses.course',[
 .controller('courseController',['$scope','$stateParams','course',
 function($scope,$stateParams,course){
 
+  $scope.newLesson = {};
+
   course.get($stateParams.courseId).then(function(course){
     $scope.course = course;
   });
 
-  $scope.addLesson = function(){
-    // course.addLesson($stateParams.courseId);
-    // $scope.course = course.get($stateParams.courseId);
+  $scope.addLesson = function(formIsValid){
+    var order = 0;
+    if($scope.course.lessons.length){
+      order = $scope.course.lessons[$scope.course.lessons.length - 1].order;
+    }
+    if(formIsValid){
+      course.add($stateParams.courseId,$scope.newLesson.name,$scope.newLesson.hours,order).then(function(lesson){
+        $scope.course.lessons.push(lesson);
+      });
+    }
   };
 
 }])
@@ -19,16 +28,18 @@ function($scope,$stateParams,course){
 .factory('course',['$http',function($http){
 
   return {
-    get: function(courseId){
-      return $http.get('/courses/'+ courseId + '/lessons').then(function(results){
+    get: function(id){
+      return $http.get('/courses/'+ id + '/lessons').then(function(results){
         return results.data;
       });
     },
-    addLesson: function(courseId){
-      course[courseId].lessons.push({
-        name:'New Lesson',
-        hours:3,
-        id: course[courseId].lessons.length
+    add: function(id,name,hours,order){
+      return $http.post('/courses/' + id + '/lessons',{
+        name:name,
+        hours:hours,
+        order:order
+      }).then(function(result){
+        return result.data;
       });
     }
   };
