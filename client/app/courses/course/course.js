@@ -19,6 +19,7 @@ function($scope,$stateParams,course){
     if(formIsValid){
       course.add($stateParams.courseId,$scope.newLesson.name,$scope.newLesson.hours,order).then(function(lesson){
         $scope.course.lessons.push(lesson);
+        $scope.newLesson = {};
       });
     }
   };

@@ -1,11 +1,17 @@
 <div class="row">
   <div class="col-md-12">
-    <h3>{{ lesson.name }}</h3>
-    <span>Hours: </span><input type="number" value="{{ lesson.hours }}">
+    <h3>Lesson: {{ lesson.name }}</h3>
+    <h4>Hours: {{ lesson.hours }}</h4>
+    <form name="newAssignmentForm" ng-submit='addAssignment(newAssignmentForm.$valid)' novalidate>
+      <input type='text' ng-model='newAssignment.name' placeholder="name of assignment" required>
+      <input type='number' ng-model='newAssignment.hours' placeholder="total assignment hours" required>
+      <textarea ng-model="newAssignment.body"></textarea>
+      <button class="btn btn-lg btn-success" type="submit">Add Assignment</button>
+    </form>
   </div>
   <div class="col-md-8" ng-repeat="assignment in lesson.assignments">
     <h4>{{ assignment.name }}</h4>
-    <p>hours: {{ assignment.hours }}</p>
+    <p>Hours: {{ assignment.hours }}</p>
     <p>{{ assignment.body }}</p>
   </div>
 </div>

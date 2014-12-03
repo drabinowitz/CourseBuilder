@@ -16,10 +16,19 @@ describe('lesson',function(){
       });
       $httpBackend.flush();
     });
+
+    it('should post new assignments', function(){
+      var newMockAssignment = {'name':'new'};
+      $httpBackend.expectPOST('/courses/1/lessons/1/assignments').respond(newMockAssignment);
+      lesson.add(1,1).then(function(assignment){
+        expect(assignment).to.eql(newMockAssignment);
+      });
+      $httpBackend.flush();
+    });
   });
 
   describe('lessonController',function(){
-    var $scope,$rootScope,$controller,$stateParams,createController,lesson,mockLesson;
+    var $scope,$rootScope,$controller,$stateParams,createController,lesson,mockLesson,mockAssignment;
 
     beforeEach(module('CB'));
     beforeEach(inject(function($injector){
@@ -40,12 +49,21 @@ describe('lesson',function(){
         }]
       };
 
+      mockAssignment = {'name':'newassignment'};
+
       lesson = {
         get:function(lessonId){
           var lesson = [mockLesson];
           return {
             then:function(cb){
               cb(lesson[lessonId]);
+            }
+          };
+        },
+        add:function(){
+          return {
+            then:function(cb){
+              cb(mockAssignment);
             }
           };
         }
@@ -64,6 +82,14 @@ describe('lesson',function(){
     it('should get associated lesson',function(){
       createController();
       expect($scope.lesson).to.equal(mockLesson);
+    });
+
+    it('should add lessons',function(){
+      createController();
+      $scope.lesson = {};
+      $scope.lesson.assignments=[];
+      $scope.addAssignment(true);
+      expect($scope.lesson.assignments[0]).to.equal(mockAssignment);
     });
   });
 });

@@ -6,3 +6,28 @@
   margin: 1px 0;
   width: 129px;
 }
+
+.course {
+    padding: 5px;
+    border: 1px solid grey;
+    margin: 5px;
+    border-radius: 5px;
+}
+
+input {
+    height: 50px;
+    width: 150px;
+    /* display: block; */
+    margin: 10px;
+    padding-left: 8px;
+}
+
+textarea {
+    display: block;
+    margin: 9px;
+    width: 324px;
+}
+
+.row {
+    border: 1px solid grey;
+}
