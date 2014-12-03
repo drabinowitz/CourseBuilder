@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
-  <nav class="navbar navbar-default navbar-static-top">
+  <nav ng-controller="authController" class="navbar navbar-default navbar-static-top">
     <div class="container">
       <div class="navbar-header">
         <a class="navbar-brand" ui-sref="welcome">Course Builder</a>
@@ -18,7 +18,11 @@
             <a ui-sref="getting-started">Getting Started</a>
           </li>
           <li>
-            <a ui-sref="users.user.courses({userId:1})">Try It Out</a>
+            <a ng-hide="user" ui-sref="users.user.courses({userId:1})">Try It Out</a>
+            <a ng-show="user" ui-sref="users.user.courses({userId:user.id})">View Your Courses</a>
+          </li>
+          <li>
+            <a ng-hide="user" href="/github">Sign in with Github</a>
           </li>
         </ul>
       </div>
@@ -29,6 +33,7 @@
   <script src="lib/angular-ui-router/release/angular-ui-router.js"></script>
   <script src="lib/ngFx/dist/ngFx.js"></script>
   <script src="app/app.js"></script>
+  <script src="app/auth/auth.js"></script>
   <script src="app/welcome/welcome.js"></script>
   <script src="app/users/users.js"></script>
   <script src="app/users/user/user.js"></script>

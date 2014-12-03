@@ -1,5 +1,6 @@
 angular.module('CB', [
   'CB.welcome',
+  'CB.auth',
   'CB.courses.course.lessons.lesson',
   'CB.users.user.courses',
   'ngFx',

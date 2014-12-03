@@ -40,6 +40,18 @@ app.get('/users/:id/courses', function(req,res){
   }
 });
 
+app.get('/users', function(req,res){
+  if (req.user){
+    new User({
+      'id':req.user.attributes.id
+    }).fetch().then(function(user){
+      res.json(user);
+    });
+  } else {
+    res.status(403).send();
+  }
+});
+
 app.get('/courses/:courseId/lessons/:id/assignments', function(req,res){
   req.user = req.user || {attributes:{id:-1}};
   new Course({
