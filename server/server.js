@@ -40,6 +40,20 @@ app.route('/users/:id/courses')
     } else {
       res.status(403).send();
     }
+  })
+
+  .post(function(req,res){
+    if (req.user){
+      new Course({
+        'name':req.body.name,
+        'user_id':req.params.id,
+        'hours':req.body.hours
+      }).save().then(function(course){
+        res.json(course);
+      });
+    } else {
+      res.status(403).send();
+    }
   });
 
 app.route('/users')
@@ -77,6 +91,23 @@ app.route('/courses/:courseId/lessons/:id/assignments')
         res.status(403).send();
       }
     });
+  })
+
+  .post(function(req,res){
+    if (req.user){
+      new Assignment({
+        'name':req.body.name,
+        'lesson_id':req.params.id,
+        'hours':req.body.hours,
+        'order':req.body.order,
+        'type':req.body.type,
+        'body':req.body.body
+      }).save().then(function(assignment){
+        res.json(assignment);
+      });
+    } else {
+      res.status(403).send();
+    }
   });
 
 app.route('/courses/:id/lessons')
@@ -99,6 +130,21 @@ app.route('/courses/:id/lessons')
         res.status(403).send();
       }
     });
+  })
+
+  .post(function(req,res){
+    if (req.user){
+      new Lesson({
+        'name':req.body.name,
+        'course_id':req.params.id,
+        'hours':req.body.hours,
+        'order':req.body.order,
+      }).save().then(function(lesson){
+        res.json(lesson);
+      });
+    } else {
+      res.status(403).send();
+    }
   });
 
 module.exports = app;

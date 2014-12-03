@@ -1,5 +1,12 @@
 <div class="row">
   <div class="col-md-12">
+    <form name="newCourseForm" ng-submit='addCourse(newCourseForm.$valid)' novalidate>
+      <input type='text' ng-model='newCourse.name' placeholder="name of course" required>
+      <input type='number' ng-model='newCourse.hours' placeholder="total course hours" required>
+      <button type="submit">Add</button>
+    </form>
+  </div>
+  <div class="col-md-12">
     <input type="text" placeholder="Filter Courses" ng-model="search">
   </div>
   <div class="col-md-4" ng-repeat="course in user.courses | filter:search">

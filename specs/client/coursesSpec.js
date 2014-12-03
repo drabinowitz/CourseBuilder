@@ -16,6 +16,15 @@ describe('courses', function(){
       });
       $httpBackend.flush();
     });
+
+    it('should post new courses', function(){
+      var newMockCourse = {'name':'new'};
+      $httpBackend.expectPOST('/users/1/courses').respond(newMockCourse);
+      courses.add(1).then(function(course){
+        expect(course).to.eql(newMockCourse);
+      });
+      $httpBackend.flush();
+    });
   });
 
   describe('coursesController',function(){
