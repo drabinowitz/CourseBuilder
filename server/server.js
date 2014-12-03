@@ -26,71 +26,79 @@ app.get('/github/callback',passportHelper.authGithub);
 
 app.use(express.static(__dirname + '/../client'));
 
-app.get('/users/:id/courses', function(req,res){
-  if ((req.user && req.user.attributes.id.toString() === req.params.id) || req.params.id === '1'){
-    new User({
-      'id':req.params.id
-    }).fetch({
-      withRelated: ['courses']
-    }).then(function(user){
-      res.json(user);
-    });
-  } else {
-    res.status(403).send();
-  }
-});
+app.route('/users/:id/courses')
 
-app.get('/users', function(req,res){
-  if (req.user){
-    new User({
-      'id':req.user.attributes.id
-    }).fetch().then(function(user){
-      res.json(user);
-    });
-  } else {
-    res.status(403).send();
-  }
-});
-
-app.get('/courses/:courseId/lessons/:id/assignments', function(req,res){
-  req.user = req.user || {attributes:{id:-1}};
-  new Course({
-    'id':req.params.courseId,
-    'user_id':req.user.attributes.id
-  }).fetch().then(function(found){
-    if ( found || req.params.courseId === '1'){
-      new Lesson({
-        'id':req.params.id,
-        'course_id':req.params.courseId
-      }).fetch({
-        withRelated:['assignments']
-      }).then(function(lesson){
-        res.json(lesson);
-      });
-    } else {
-      res.status(403).send();
-    }
-  });
-});
-
-app.get('/courses/:id/lessons', function(req,res){
-  req.user = req.user || {attributes:{id:-1}};
-  new Course({
-    'id':req.params.id,
-    'user_id':req.user.attributes.id
-  }).fetch().then(function(found){
-    if ( found || req.params.id === '1'){
-      new Course({
+  .get(function(req,res){
+    if ((req.user && req.user.attributes.id.toString() === req.params.id) || req.params.id === '1'){
+      new User({
         'id':req.params.id
       }).fetch({
-        withRelated:['lessons']
-      }).then(function(course){
-        res.json(course);
+        withRelated: ['courses']
+      }).then(function(user){
+        res.json(user);
       });
     } else {
       res.status(403).send();
     }
   });
-});
+
+app.route('/users')
+
+  .get(function(req,res){
+    if (req.user){
+      new User({
+        'id':req.user.attributes.id
+      }).fetch().then(function(user){
+        res.json(user);
+      });
+    } else {
+      res.status(403).send();
+    }
+  });
+
+app.route('/courses/:courseId/lessons/:id/assignments')
+
+  .get(function(req,res){
+    req.user = req.user || {attributes:{id:-1}};
+    new Course({
+      'id':req.params.courseId,
+      'user_id':req.user.attributes.id
+    }).fetch().then(function(found){
+      if ( found || req.params.courseId === '1'){
+        new Lesson({
+          'id':req.params.id,
+          'course_id':req.params.courseId
+        }).fetch({
+          withRelated:['assignments']
+        }).then(function(lesson){
+          res.json(lesson);
+        });
+      } else {
+        res.status(403).send();
+      }
+    });
+  });
+
+app.route('/courses/:id/lessons')
+
+  .get(function(req,res){
+    req.user = req.user || {attributes:{id:-1}};
+    new Course({
+      'id':req.params.id,
+      'user_id':req.user.attributes.id
+    }).fetch().then(function(found){
+      if ( found || req.params.id === '1'){
+        new Course({
+          'id':req.params.id
+        }).fetch({
+          withRelated:['lessons']
+        }).then(function(course){
+          res.json(course);
+        });
+      } else {
+        res.status(403).send();
+      }
+    });
+  });
 
 module.exports = app;

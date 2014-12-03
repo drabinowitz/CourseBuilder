@@ -24,6 +24,7 @@
           <li>
             <a ng-hide="user" href="/github">Sign in with Github</a>
           </li>
+          <li ng-show="user"><a>{{ user.username }}</a></li>
         </ul>
       </div>
     </div>
