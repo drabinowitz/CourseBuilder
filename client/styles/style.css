@@ -31,3 +31,11 @@ textarea {
 .row {
     border: 1px solid grey;
 }
+
+.col-md-8 {
+    border: 1px solid grey;
+}
+
+form {
+    margin-bottom: 5px;
+}

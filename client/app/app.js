@@ -51,7 +51,7 @@ function($stateProvider,$urlRouterProvider,$httpProvider){
       template: '<div ui-view></div>'
     })
     .state('courses.course.lessons.lesson', {
-      url: '/:lessonId',
+      url: '/:lessonId/assignments',
       templateUrl: 'app/courses/course/lessons/lesson/lesson.html',
       controller: 'lessonController'
     });
