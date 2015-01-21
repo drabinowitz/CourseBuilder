@@ -42,9 +42,8 @@ app.route('/users/:id/courses')
     }
   })
 
-  //TODO: not secure
   .post(function(req,res){
-    if (req.user){
+    if (req.user && req.user.attributes.id.toString() === req.params.id){
       new Course({
         'name':req.body.name,
         'user_id':req.params.id,
