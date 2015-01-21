@@ -4,7 +4,7 @@
   "description": "a Course organizer, designer, and builder for teachers",
   "main": "index.js",
   "scripts": {
-    "test": "node index.js& ./node_modules/.bin/mocha --bail --reporter nyan specs/server/ServerSpec.js; pkill -n node;"
+    "start": "gulp serve"
   },
   "repository": {
     "type": "git",
@@ -19,9 +19,6 @@
   "devDependencies": {
     "browser-sync": "^1.7.2",
     "expect.js": "^0.3.1",
-    "gulp": "^3.8.10",
-    "gulp-nodemon": "^1.0.4",
-    "gulp-shell": "^0.2.11",
     "jasmine-core": "^2.1.2",
     "karma": "^0.12.28",
     "karma-chrome-launcher": "^0.1.5",
@@ -35,6 +32,9 @@
     "mocha": "^2.0.1"
   },
   "dependencies": {
+    "gulp": "^3.8.10",
+    "gulp-nodemon": "^1.0.4",
+    "gulp-shell": "^0.2.11",
     "bcrypt-nodejs": "0.0.3",
     "bluebird": "^2.3.11",
     "body-parser": "^1.9.3",
