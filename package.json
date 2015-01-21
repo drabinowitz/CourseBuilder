@@ -4,7 +4,8 @@
   "description": "a Course organizer, designer, and builder for teachers",
   "main": "index.js",
   "scripts": {
-    "start": "gulp serve"
+    "start": "gulp serve",
+    "postinstall": "bower cache clean && bower install"
   },
   "repository": {
     "type": "git",
