@@ -47,7 +47,7 @@ var passportHelper = function(app){
   passport.use(new GithubStrategy({
     clientID: GITHUB.CLIENT_ID,
     clientSecret: GITHUB.CLIENT_SECRET,
-    callbackURL: 'https://mysterious-depths-9268.herokuapp.com/github/callback'
+    callbackURL: 'https://coursebuilder.herokuapp.com/github/callback'
   },
   function(accessToken,refreshToken, profile, done){
     if (profile.username === 'Guest'){return;}
