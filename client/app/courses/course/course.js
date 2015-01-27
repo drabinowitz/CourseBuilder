@@ -1,6 +1,7 @@
 angular.module('CB.courses.course',[
   'ngFx',
-  'ui.router'
+  'ui.router',
+  'lesson.link'
 ])
 
 .controller('courseController',['$scope','$stateParams','course',

@@ -13,11 +13,8 @@
     <div class="col-md-12">
       <input type="text" placeholder="Filter Lessons" ng-model="search">
     </div>
-    <div class="col-md-12 fx-bounce-left fx-speed-500 fx-easing-back" ng-repeat="lesson in course.lessons | filter:search">
-       <div class="lesson" ng-style="{'height':lesson.hours*30 + 'px'}">
-         <h4><a ui-sref="courses.course.lessons.lesson({lessonId:lesson.id})">{{ lesson.name }}</a></h4>
-         <p>hours : {{ lesson.hours }}</p>
-       </div>
+    <div class="col-md-12 fx-zoom-left fx-speed-500 fx-easing-back" ng-repeat="lesson in course.lessons | filter:search">
+      <lesson-link lesson="lesson"></lesson-link>
     </div>
   </div>
 </div>
