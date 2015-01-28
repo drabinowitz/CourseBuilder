@@ -9,11 +9,29 @@ function($scope,$stateParams,lesson){
 
   $scope.newAssignment = {};
 
+  $scope.lesson = {assignments: []};
+  $scope.assignments = $scope.lesson.assignments;
+
   if ($stateParams.courseId === '1'){$scope.isGuest = true;}
 
   lesson.get($stateParams.courseId,$stateParams.lessonId).then(function(lesson){
     $scope.lesson = lesson;
+    $scope.assignments = $scope.lesson.assignments;
   });
+
+  var progressBarUpdate = function () {
+    if ($scope.lesson.assignments) {
+      $scope.progressBar = {
+        'width': $scope.lesson.assignments.reduce(function (totalHours, assignment) {
+          return totalHours + assignment.hours/$scope.lesson.hours * 100;
+        }, 0) + 'px'
+      };
+    }
+  };
+
+  progressBarUpdate();
+
+  $scope.$watch('assignments', progressBarUpdate);
 
   $scope.addAssignment = function(formIsValid){
     var order = 0;

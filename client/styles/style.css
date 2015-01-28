@@ -4,7 +4,8 @@
   border-radius: 6px;
   border: 1px solid rgba(128, 128, 128, 0.69);
   margin: 1px 0;
-  width: 129px;
+  width: 260px;
+  background-color: white;
 }
 
 .course {
@@ -38,4 +39,26 @@ textarea {
 
 form {
     margin-bottom: 5px;
+}
+
+aside.lesson-link-sidebar {
+  position: fixed;
+  background: rgb(250,250,250);
+  left: 0;
+  bottom: 0;
+  top: 187px;
+  width: 300px;
+}
+
+.course-hour-progress-bar {
+  height: 50px;
+  border: 1px solid black;
+}
+
+.current-progress {
+  background-color: blue;
+}
+
+.total-progress {
+  width: 100px;
 }

@@ -10,11 +10,25 @@ function($scope,$stateParams,course){
   $scope.newLesson = {};
 
   $scope.course = {lessons:[]};
+  $scope.lessons = $scope.course.lessons;
+
+  var progressBarUpdate = function () {
+    $scope.progressBar = {
+      'width': $scope.course.lessons.reduce(function (totalHours, lesson) {
+        return totalHours + lesson.hours/$scope.course.hours * 100;
+      }, 0) + 'px'
+    };
+  };
+
+  progressBarUpdate();
+
+  $scope.$watch('lessons', progressBarUpdate);
 
   if ($stateParams.courseId === '1'){$scope.isGuest = true;}
 
   course.get($stateParams.courseId).then(function(course){
     $scope.course = course;
+    $scope.lessons = $scope.course.lessons;
   });
 
   $scope.addLesson = function(formIsValid){

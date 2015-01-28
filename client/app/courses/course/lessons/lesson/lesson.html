@@ -2,6 +2,9 @@
   <div class="col-md-12">
     <h3>Lesson: {{ lesson.name }}</h3>
     <h4>Hours: {{ lesson.hours }}</h4>
+    <div class="course-hour-progress-bar total-progress">
+      <div class="course-hour-progress-bar current-progress" ng-style="progressBar"></div>
+    </div>
     <form name="newAssignmentForm" ng-submit='addAssignment(newAssignmentForm.$valid)' novalidate>
       <input type='text' ng-model='newAssignment.name' placeholder="name of assignment" required>
       <input type='number' ng-model='newAssignment.hours' placeholder="total assignment hours" required>

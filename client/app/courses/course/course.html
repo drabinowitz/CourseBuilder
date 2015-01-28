@@ -1,7 +1,10 @@
+<button ng-click="hideSideBar = !hideSideBar">Toggle Lesson Sidebar</button>
 <div class="container">
   <h1>Course: {{course.name}}</h3>
   <h3>Hours: {{course.hours}}</h3>
-  <div ui-view></div>
+  <div class="course-hour-progress-bar total-progress">
+    <div class="course-hour-progress-bar current-progress" ng-style="progressBar"></div>
+  </div>
   <div class="row">
   <div class="col-md-12">
     <form name="newLessonForm" ng-submit='addLesson(newLessonForm.$valid)' novalidate>
@@ -13,8 +16,11 @@
     <div class="col-md-12">
       <input type="text" placeholder="Filter Lessons" ng-model="search">
     </div>
-    <div class="col-md-12 fx-zoom-left fx-speed-500 fx-easing-back" ng-repeat="lesson in course.lessons | filter:search">
-      <lesson-link lesson="lesson"></lesson-link>
-    </div>
+    <aside ng-hide="hideSideBar" class="lesson-link-sidebar">
+      <div class="col-md-12 fx-zoom-left fx-speed-500 fx-easing-back" ng-repeat="lesson in course.lessons | filter:search">
+        <lesson-link lesson="lesson"></lesson-link>
+      </div>
+    </aside>
   </div>
+  <div ui-view></div>
 </div>
