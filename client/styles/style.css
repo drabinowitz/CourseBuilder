@@ -48,6 +48,7 @@ aside.lesson-link-sidebar {
   bottom: 0;
   top: 187px;
   width: 300px;
+  z-index: 1;
 }
 
 .course-hour-progress-bar {
