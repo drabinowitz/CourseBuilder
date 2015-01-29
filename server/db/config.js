@@ -1,16 +1,16 @@
 var Bookshelf = require('bookshelf');
 var path = require('path');
-var SQLITE3 = require('../../creds/SQLITE3');
+// var SQLITE3 = require('../../creds/SQLITE3');
 
 var db = Bookshelf.initialize({
   client: 'sqlite3',
   connection: {
-    host: SQLITE3.HOST,
-    user: SQLITE3.USER,
-    password: SQLITE3.PASSWORD,
-    database: SQLITE3.DATABASE,
+    host: process.env.SQLITE3_HOST,
+    user: process.env.SQLITE3_USER,
+    password: process.env.SQLITE3_PASSWORD,
+    database: process.env.SQLITE3_DATABASE,
     charset: 'utf8',
-    filename: path.join(__dirname, 'storage/' + SQLITE3.DATABASE + '.sqlite')
+    filename: path.join(__dirname, 'storage/' + process.env.SQLITE3_DATABASE + '.sqlite')
   }
 });
 

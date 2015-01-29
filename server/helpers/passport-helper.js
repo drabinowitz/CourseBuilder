@@ -1,5 +1,5 @@
-var GITHUB = require('../../creds/github');
-var SECRETS = require('../../creds/secrets');
+// var GITHUB = require('../../creds/github');
+// var SECRETS = require('../../creds/secrets');
 var passport = require('passport');
 var LocalStrategy = require('passport-local');
 var GithubStrategy = require('passport-github').Strategy;
@@ -21,9 +21,9 @@ var authGen = function(strategy,successRedirect,failureRedirect){
 
 var passportHelper = function(app){
 
-  app.use(cookieParser(SECRETS.COOKIE));
+  app.use(cookieParser(process.env.COOKIE));
   app.use(session({
-    secret: SECRETS.SESSION,
+    secret: process.env.SESSION,
     resave: false,
     saveUninitialized: true
   }));
@@ -45,8 +45,8 @@ var passportHelper = function(app){
   ));*/
 
   passport.use(new GithubStrategy({
-    clientID: GITHUB.CLIENT_ID,
-    clientSecret: GITHUB.CLIENT_SECRET,
+    clientID: process.env.GITHUB_CLIENT_ID,
+    clientSecret: process.env.GITHUB_CLIENT_SECRET,
     callbackURL: 'https://coursebuilder.herokuapp.com/github/callback'
   },
   function(accessToken,refreshToken, profile, done){
